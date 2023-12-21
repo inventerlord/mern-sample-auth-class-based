@@ -2,6 +2,8 @@ import { createServer } from 'http';
 import express from 'express';
 import mainRouter from '../routes/mainRouter.js';
 import authRouter from '../routes/authRouter.js';
+import cors from 'cors';
+import { corsOptions } from '../config/settings.js';
 // import { config } from 'dotenv';
 
 export default class App {
@@ -18,6 +20,7 @@ export default class App {
   }
   loadPlugins() {
     this.app.use(express.json());
+    this.app.use(cors(corsOptions));
   }
   loadRoutes() {
     this.app.use('/api', mainRouter);

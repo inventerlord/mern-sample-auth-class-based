@@ -3,24 +3,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-// export const register = async (req, res) => {
-//   const { email, password } = req.body;
-
-//   firebaseAdmin
-//     .auth()
-//     .createUser({
-//       email: email,
-//       password: password,
-//       emailVerified: false,
-//       disabled: false,
-//     })
-//     .then((user) => {
-//       return res.status(201).json(user);
-//     })
-//     .catch((error) => {
-//       return res.json(error);
-//     });
-// };
+import { getDatabase } from 'firebase/database';
 export const register = async (req, res) => {
   const { email, password } = req.body;
   createUserWithEmailAndPassword(auth, email, password)
@@ -28,12 +11,12 @@ export const register = async (req, res) => {
       return res.status(201).json(registerResponse);
     })
     .catch((error) => {
-      return res.status(401).json(error);
+      return res.status(400).json(error);
     });
 };
 
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, username, password } = req.body;
   signInWithEmailAndPassword(auth, email, password)
     .then((loginResponse) => {
       return res.status(200).json(loginResponse);
