@@ -1,0 +1,1 @@
+# mern-sample-auth-class-based
