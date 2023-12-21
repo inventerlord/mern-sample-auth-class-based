@@ -1,5 +1,4 @@
-import firebaseAdmin from '../modules/firebase_admin';
-import { auth } from '../modules/firebase_client';
+import { auth } from '../modules/firebase_client.js';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,

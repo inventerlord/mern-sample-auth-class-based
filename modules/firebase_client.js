@@ -1,6 +1,5 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getAnalytics } from 'firebase/analytics';
 const firebaseConfig = {
   apiKey: 'AIzaSyAmwBEEpYP6nB1rJmCqmGoLrl4dH8s220U',
   authDomain: 'pak-agro-vertical-farmin-fc4ee.firebaseapp.com',
@@ -13,5 +12,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const firebaseClient = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(firebaseClient);
 export const auth = getAuth(firebaseClient);
